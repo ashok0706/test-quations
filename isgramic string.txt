@@ -1,0 +1,38 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static int[] updation(String str, int arr[]){
+        
+        for(int i=0; i<str.length(); i++){
+            char ch= str.charAt(i);
+            int n= ch-'a';
+            arr[n]++;
+        }
+        return arr;
+    }
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner input = new Scanner(System.in);
+        
+        String str1= input.next();
+        
+        // String str2= input.next();
+        
+        int arr1[]=new int[26];
+        updation(str1, arr1);
+        
+        // int arr2[]=new int[26];
+        // updation(str2, arr2);
+        
+        for(int i=0; i<26; i++){
+            if(arr1[i]>1){
+                System.out.println("Not an Isogram");
+                return;
+            }
+        }
+        System.out.println("Isogram");
+        
+    }
+}
