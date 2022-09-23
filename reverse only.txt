@@ -1,0 +1,58 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static int PF_LS(String str, int x,int y){
+        
+        while(x<y){
+            char ch=str.charAt(x);
+            if((ch>='a' && ch<='z') || (ch>='A' && ch<='Z')){
+                return x;
+            }
+            x++;
+        }
+        return -1;
+    }
+
+    public static int PF_RS(String str, int y,int x){
+        
+        while(x<y){
+            char ch=str.charAt(y);
+            if((ch>='a' && ch<='z') || (ch>='A' && ch<='Z')){
+                return y;
+            }
+            y--;
+        }
+        return -1;
+    }
+    
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner input = new Scanner(System.in);
+        String str= input.nextLine();
+        char ch[]= str.toCharArray();
+        
+        int x= 0;
+        int y=ch.length-1;
+        
+        while(x<y){
+           
+            x= PF_LS(str, x,y);
+            y= PF_RS(str,y,x);
+            
+            if(x==-1 || y==-1){
+                break;
+            }
+            char tem= ch[x];
+            ch[x]=ch[y];
+            ch[y]=tem;
+            
+            x++;
+            y--;
+        }
+        //System.out.println(Arrays.toString(ch));
+        for(int i=0; i<ch.length; i++){
+            System.out.print(ch[i]);
+        }
+    }
+}
