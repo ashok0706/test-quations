@@ -1,0 +1,41 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+        public static boolean XSHAPE(int arr[][]){
+            // int left=0;
+            // int right=arr.length-1;
+            int n= arr.length-1;
+            for(int i=0; i<arr.length; i++){
+                for(int j=0; j<arr.length; j++){
+                    
+                        if((j==0 || j==arr.length-1 )|| (j==i && i<=arr.length/2) || (j==n && i<=arr.length/2)){
+                           
+                            if(arr[i][j]!=1)return false;
+                        }
+                        
+                        else if(arr[i][j]!=0)return false;
+                             // System.out.print("false ");
+                        }
+                       n--;
+            }
+            return true;
+        } 
+        public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner input = new Scanner(System.in);
+        
+        int n= input.nextInt();
+        int arr[][]= new int[n][n];
+        
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                arr[i][j]=input.nextInt();
+            }
+        }
+            // XSHAPE(arr);
+        boolean ans= XSHAPE(arr);
+            System.out.print(ans);
+    }
+}
