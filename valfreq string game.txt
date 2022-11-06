@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner input = new Scanner(System.in);
+        String s= input.next();
+        HashMap<Character,Integer> map = new HashMap<>();
+        
+        for(int i=0; i<s.length(); i++){
+            char c= s.charAt(i);
+            map.put(c,map.getOrDefault(c,0)+1);
+        }
+        List<Integer> l= new ArrayList<>();
+        for(Character ch:map.keySet()){
+            int x= ch-'0';
+            for(int i=0; i<x; i++){
+                l.add(map.get(ch));
+            }
+        }
+        // System.out.println(l);
+        Collections.sort(l);
+        for(Integer num :l){
+         System.out.print(num);   
+        }
+        
+    }
+}

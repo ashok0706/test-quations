@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner input = new Scanner(System.in);
+        int n= input.nextInt();
+        int dist[]= new int[n];
+        for(int i=0; i<n; i++){
+            dist[i]= input.nextInt();
+        }
+        
+        int least_dist= Integer.MAX_VALUE;
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                if(i!=j){
+               int x=Math.abs(dist[i]-dist[j]);
+            if(least_dist>x){
+                least_dist=x;
+            }
+                }
+
+            }
+        }
+        System.out.println(least_dist);
+    }
+}

@@ -1,0 +1,35 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner input = new Scanner(System.in);
+        Stack<Integer> s=new Stack<>();
+        while(true){
+            int x= input.nextInt();
+            if(x==0){
+                continue;
+            }
+          else if(x<0){
+                break;
+            }
+           else if(x%2==0){
+                s.push(x);
+            }
+           else if(x%2!=0){
+               if(s.size()==0){
+                   continue;
+               }else {
+                 s.pop();  
+               }
+                
+            }
+            
+        }
+        while(s.size()>0){
+            System.out.println(s.pop());
+        }
+    }
+}
