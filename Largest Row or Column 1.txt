@@ -1,0 +1,63 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    
+        static int sumofcol(int arr[][], int col){
+        int sum=0;
+        for(int  i=0; i<arr.length; i++){
+            sum+=arr[i][col];
+        }
+        return sum;
+    }
+
+    
+    static int sumofraw(int arr[][], int row){
+        int sum=0;
+        for(int  j=0; j<arr[0].length; j++){
+            sum+=arr[row][j];
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner input = new Scanner(System.in);
+        int n= input.nextInt();
+        int m= input.nextInt();
+        
+        int arr[][]= new int[n][m];
+        
+        for(int i=0; i<n; i++){
+            for(int j=0; j<m; j++){
+                arr[i][j]= input.nextInt();
+            }
+        }
+        
+        int sr=Integer.MIN_VALUE;
+        int row =0;
+        for(int i=0; i<n; i++){
+          int a=  sumofraw(arr, i);
+            if(sr<a){
+                sr=a;
+                row=i;
+            }
+        }
+        
+        int sc=Integer.MIN_VALUE;
+        int col=0;
+        for(int j=0; j<m; j++){
+            int b= sumofcol(arr, j);
+            if(sc<b){
+                sc=b;
+                col=j;
+            }
+        }
+        
+        if(sr>=sc){
+            System.out.println("row "+row+" "+sr);
+        }else{
+            System.out.println("column "+col+" "+sc);
+        }
+    }
+}
